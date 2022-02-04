@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 
 /*
 namespace Drexel.Operations
@@ -38,67 +37,61 @@ namespace Drexel.Operations
 
 namespace Drexel.Operations.Generated
 {
-    public sealed class Generator_IOperationAction
+    public sealed class Generator_IOperationAction : GeneratorBase
     {
-        private readonly uint order;
-
         public Generator_IOperationAction(uint order)
+            : base(order)
         {
-            this.order = order;
-            if (this.order < 1)
-            {
-                throw new ArgumentException("Order must be at least 1.");
-            }
         }
 
-        public string Build()
+        protected override string BuildInternal()
         {
-            if (this.order < 1)
-            {
-                throw new ArgumentException("Order must be at least 1.", nameof(this.order));
-            }
-
             StringBuilder builder = new StringBuilder();
+
             builder.AppendLine(
-@"// Auto-generated code
-namespace Drexel.Operations
+@"namespace Drexel.Operations
 {
     /// <summary>
     /// Represents a synchronous operation that does not return a result.
     /// </summary>");
 
-            for (uint counter = 1; counter < this.order + 1; counter++)
-            {
-                builder.AppendLine(
-@$"    /// <typeparam name=""T{counter}"">
-    /// Supported type {counter}.
+            this.ForOrder(
+                x =>
+                {
+                    builder.AppendLine(
+@$"    /// <typeparam name=""T{x}"">
+    /// Supported type {x}.
     /// </typeparam>");
-            }
+                });
 
             builder.Append("    public interface IOperationAction<in T1");
-            for (uint counter = 2; counter < this.order + 1; counter++)
-            {
-                builder.Append(", in T");
-                builder.Append(counter);
-            }
+            this.ForOrder(
+                startAt: 2,
+                callback: x =>
+                {
+                    builder.Append(", in T");
+                    builder.Append(x);
+                });
 
             builder.AppendLine(">");
             builder.Append("    {");
 
-            for (uint counter = 1; counter < this.order + 1; counter++)
-            {
+            this.ForOrder(
+                x =>
+                {
+                    
                 builder.AppendLine();
                 builder.Append(
 $@"        /// <summary>
         /// Synchronously invokes this operation on the supplied <paramref name=""input""/> as an instance of
-        /// <typeparamref name=""T{counter}""/>.
+        /// <typeparamref name=""T{x}""/>.
         /// </summary>
         /// <param name=""input"">
-        /// The input as an instance of <typeparamref name=""T{counter}""/>.
+        /// The input as an instance of <typeparamref name=""T{x}""/>.
         /// </param>
-        void InvokeT{counter}(T{counter} input);
+        void InvokeT{x}(T{x} input);
 ");
-            }
+                });
 
             builder.Append(
 @"    }

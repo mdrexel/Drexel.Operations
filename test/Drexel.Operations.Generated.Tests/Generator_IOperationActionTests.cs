@@ -43,7 +43,8 @@ namespace Drexel.Operations
     }
 }";
 
-            Assert.AreEqual(expected, new Generator_IOperationAction(2).Build());
+            string actual = new Generator_IOperationAction(2).Build();
+            Assert.AreEqual(expected, actual);
         }
     }
 }

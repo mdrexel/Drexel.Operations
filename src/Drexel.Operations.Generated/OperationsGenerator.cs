@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.CodeAnalysis;
+﻿using Microsoft.CodeAnalysis;
 
 namespace Drexel.Operations.Generated
 {
@@ -21,6 +18,7 @@ namespace Drexel.Operations.Generated
                 uint order = counter + 1;
 
                 context.AddSource($"IOperationAction.T{order}.g.cs", new Generator_IOperationAction(order).Build());
+                context.AddSource($"IOperationAsyncAction.T{order}.g.cs", new Generator_IOperationAsyncAction(order).Build());
             }
         }
     }
