@@ -6,8 +6,4 @@
     <Nullable>Enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <!--<ProjectReference Include="..\Drexel.Operations.Generated\Drexel.Operations.Generated.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />-->
-  </ItemGroup>
-
 </Project>
