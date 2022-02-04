@@ -1,13 +1,10 @@
 ﻿using System.Text;
 
 /*
-using System.Threading;
-using System.Threading.Tasks;
-
 namespace Drexel.Operations
 {
     /// <summary>
-    /// Represents an asynchronous operation that returns a result.
+    /// Represents a synchronous operation that returns a result.
     /// </summary>
     /// <typeparam name="T1">
     /// Supported type 1.
@@ -18,46 +15,40 @@ namespace Drexel.Operations
     /// <typeparam name="TResult">
     /// The type of returned result.
     /// </typeparam>
-    public interface IOperationAsyncFunc<in T1, in T2, TResult>
+    public interface IOperationFunc<in T1, in T2, out TResult>
     {
         /// <summary>
-        /// Asynchronously invokes this operation on the supplied <paramref name="input"/> as an instance of
+        /// Synchronously invokes this operation on the supplied <paramref name="input"/> as an instance of
         /// <typeparamref name="T1"/>.
         /// </summary>
         /// <param name="input">
         /// The input as an instance of <typeparamref name="T1"/>.
         /// </param>
-        /// <param name="cancellationToken">
-        /// Controls the lifetime of the invocation of this operation.
-        /// </param>
         /// <returns>
-        /// A <see cref="Task{TResult}"/> representing the invocation of this operation.
+        /// An instance of <typeparamref name="TResult"/>.
         /// </returns>
-        Task<TResult> InvokeT1Async(T1 input, CancellationToken cancellationToken);
+        TResult InvokeT1(T1 input);
 
         /// <summary>
-        /// Asynchronously invokes this operation on the supplied <paramref name="input"/> as an instance of
+        /// Synchronously invokes this operation on the supplied <paramref name="input"/> as an instance of
         /// <typeparamref name="T2"/>.
         /// </summary>
         /// <param name="input">
         /// The input as an instance of <typeparamref name="T2"/>.
         /// </param>
-        /// <param name="cancellationToken">
-        /// Controls the lifetime of the invocation of this operation.
-        /// </param>
         /// <returns>
-        /// A <see cref="Task{TResult}"/> representing the invocation of this operation.
+        /// An instance of <typeparamref name="TResult"/>.
         /// </returns>
-        Task<TResult> InvokeT2Async(T2 input, CancellationToken cancellationToken);
+        TResult InvokeT2(T2 input);
     }
 }
 */
 
 namespace Drexel.Operations.Generated
 {
-    public sealed class Generator_IOperationAsyncFunc : GeneratorBase
+    public sealed class Generator_IOperationFunc : GeneratorBase
     {
-        public Generator_IOperationAsyncFunc(uint order)
+        public Generator_IOperationFunc(uint order)
             : base(order)
         {
         }
