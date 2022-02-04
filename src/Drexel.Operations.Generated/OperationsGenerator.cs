@@ -11,9 +11,9 @@ namespace Drexel.Operations.Generated
 
         public void Execute(GeneratorExecutionContext context)
         {
-            const uint maximumOrderIncluxive = 20;
+            const uint maximumOrderInclusive = 20;
 
-            for (uint counter = 0; counter < maximumOrderIncluxive; counter++)
+            for (uint counter = 0; counter < maximumOrderInclusive; counter++)
             {
                 uint order = counter + 1;
 
