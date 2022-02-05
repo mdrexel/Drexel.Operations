@@ -27,6 +27,8 @@ namespace Drexel.Operations.Generated
                 context.AddSource($"IOperationStatefulFunc.T{order}.g.cs", new Generator_IOperationStatefulFunc(order).Build());
 
                 context.AddSource($"OperationAction.T{order}.g.cs", new Generator_OperationAction(order).Build());
+                context.AddSource($"OperationAsyncAction.T{order}.g.cs", new Generator_OperationAsyncAction(order).Build());
+                context.AddSource($"OperationAsyncFunc.T{order}.g.cs", new Generator_OperationAsyncFunc(order).Build());
             }
         }
     }

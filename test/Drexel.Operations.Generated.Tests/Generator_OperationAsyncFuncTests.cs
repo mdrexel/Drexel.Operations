@@ -1,4 +1,16 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace Drexel.Operations.Generated.Tests
+{
+    [TestClass]
+    public sealed class Generator_OperationAsyncFuncTests
+    {
+        [TestMethod]
+        public void Build()
+        {
+            const string expected =
+@"// Auto-generated code
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -7,13 +19,13 @@ namespace Drexel.Operations
     /// <summary>
     /// An asynchronous operation that returns a result.
     /// </summary>
-    /// <typeparam name="T1">
+    /// <typeparam name=""T1"">
     /// Supported type 1.
     /// </typeparam>
-    /// <typeparam name="T2">
+    /// <typeparam name=""T2"">
     /// Supported type 2.
     /// </typeparam>
-    /// <typeparam name="TResult">
+    /// <typeparam name=""TResult"">
     /// The type of returned result.
     /// </typeparam>
     public sealed class OperationAsyncFunc<T1, T2, TResult> : IOperationAsyncFunc<T1, T2, TResult>
@@ -22,16 +34,16 @@ namespace Drexel.Operations
         private readonly Func<T2, CancellationToken, Task<TResult>> t2;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OperationAsyncFunc{T1, T2, TResult}"/> class.
+        /// Initializes a new instance of the <see cref=""OperationAsyncFunc{T1, T2, TResult}""/> class.
         /// </summary>
-        /// <param name="t1">
-        /// The delegate associated with <typeparamref name="T1"/>.
+        /// <param name=""t1"">
+        /// The delegate associated with <typeparamref name=""T1""/>.
         /// </param>
-        /// <param name="t2">
-        /// The delegate associated with <typeparamref name="T2"/>.
+        /// <param name=""t2"">
+        /// The delegate associated with <typeparamref name=""T2""/>.
         /// </param>
-        /// <exception cref="ArgumentNullException">
-        /// Thrown when any of the supplied delegates is <see langword="null"/>.
+        /// <exception cref=""ArgumentNullException"">
+        /// Thrown when any of the supplied delegates is <see langword=""null""/>.
         /// </exception>
         public OperationAsyncFunc(
             Func<T1, CancellationToken, Task<TResult>> t1,
@@ -46,5 +58,11 @@ namespace Drexel.Operations
 
         public Task<TResult> InvokeT2Async(T2 input, CancellationToken cancellationToken) =>
             this.t2.Invoke(input, cancellationToken);
+    }
+}";
+
+            string actual = new Generator_OperationAsyncFunc(2).Build();
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
