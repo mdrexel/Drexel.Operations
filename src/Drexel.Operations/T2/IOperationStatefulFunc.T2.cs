@@ -34,10 +34,10 @@
 
         /// <summary>
         /// Synchronously invokes this operation on the supplied <paramref name="input"/> as an instance of
-        /// <typeparamref name="T1"/>.
+        /// <typeparamref name="T2"/>.
         /// </summary>
         /// <param name="input">
-        /// The input as an instance of <typeparamref name="T1"/>.
+        /// The input as an instance of <typeparamref name="T2"/>.
         /// </param>
         /// <param name="state">
         /// The external state.
