@@ -36,7 +36,7 @@ namespace Drexel.Operations
         Task InvokeT1Async(T1 input, TState state, CancellationToken cancellationToken);
 
         /// <summary>
-        /// Asynchronously invokes this action on the supplied <paramref name="input"/> as an instance of
+        /// Asynchronously invokes this operation on the supplied <paramref name="input"/> as an instance of
         /// <typeparamref name="T2"/> using the supplied <paramref name="state"/>.
         /// </summary>
         /// <param name="input">
