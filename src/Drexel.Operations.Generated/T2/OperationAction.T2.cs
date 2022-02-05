@@ -9,7 +9,7 @@ namespace Drexel.Operations
     /// Supported type 1.
     /// </typeparam>
     /// <typeparam name="T2">
-    /// Supported type 1.
+    /// Supported type 2.
     /// </typeparam>
     public sealed class OperationAction<T1, T2> : IOperationAction<T1, T2>
     {

@@ -11,7 +11,7 @@ namespace Drexel.Operations.Generated
 
         public void Execute(GeneratorExecutionContext context)
         {
-            const uint maximumOrderInclusive = 20;
+            const uint maximumOrderInclusive = 50;
 
             for (uint counter = 0; counter < maximumOrderInclusive; counter++)
             {
@@ -25,6 +25,8 @@ namespace Drexel.Operations.Generated
                 context.AddSource($"IOperationStatefulAsyncAction.T{order}.g.cs", new Generator_IOperationStatefulAsyncAction(order).Build());
                 context.AddSource($"IOperationStatefulAsyncFunc.T{order}.g.cs", new Generator_IOperationStatefulAsyncFunc(order).Build());
                 context.AddSource($"IOperationStatefulFunc.T{order}.g.cs", new Generator_IOperationStatefulFunc(order).Build());
+
+                context.AddSource($"OperationAction.T{order}.g.cs", new Generator_OperationAction(order).Build());
             }
         }
     }
