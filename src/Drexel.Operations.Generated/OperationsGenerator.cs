@@ -20,6 +20,7 @@ namespace Drexel.Operations.Generated
                 context.AddSource($"IOperationAction.T{order}.g.cs", new Generator_IOperationAction(order).Build());
                 context.AddSource($"IOperationAsyncAction.T{order}.g.cs", new Generator_IOperationAsyncAction(order).Build());
                 context.AddSource($"IOperationAsyncFunc.T{order}.g.cs", new Generator_IOperationAsyncFunc(order).Build());
+                context.AddSource($"IOperationFunc.T{order}.g.cs", new Generator_IOperationFunc(order).Build());
             }
         }
     }

@@ -58,13 +58,10 @@ namespace Drexel.Operations.Generated
             StringBuilder builder = new StringBuilder();
 
             builder.AppendLine(
-@"using System.Threading;
-using System.Threading.Tasks;
-
-namespace Drexel.Operations
+@"namespace Drexel.Operations
 {
     /// <summary>
-    /// Represents an asynchronous operation that returns a result.
+    /// Represents a synchronous operation that returns a result.
     /// </summary>");
 
             this.ForOrder(x => builder.AppendLine(
@@ -77,7 +74,7 @@ $@"    /// <typeparam name=""T{x}"">
     /// The type of returned result.
     /// </typeparam>");
 
-            builder.Append("    public interface IOperationAsyncFunc<in T1");
+            builder.Append("    public interface IOperationFunc<in T1");
 
             this.ForOrder(
                 startAt: 2,
@@ -87,7 +84,7 @@ $@"    /// <typeparam name=""T{x}"">
                     builder.Append(x);
                 });
 
-            builder.AppendLine(", TResult>");
+            builder.AppendLine(", out TResult>");
             builder.Append("    {");
 
 
@@ -97,19 +94,16 @@ $@"    /// <typeparam name=""T{x}"">
                     builder.AppendLine();
                     builder.Append(
 $@"        /// <summary>
-        /// Asynchronously invokes this operation on the supplied <paramref name=""input""/> as an instance of
+        /// Synchronously invokes this operation on the supplied <paramref name=""input""/> as an instance of
         /// <typeparamref name=""T{x}""/>.
         /// </summary>
         /// <param name=""input"">
         /// The input as an instance of <typeparamref name=""T{x}""/>.
         /// </param>
-        /// <param name=""cancellationToken"">
-        /// Controls the lifetime of the invocation of this operation.
-        /// </param>
         /// <returns>
-        /// A <see cref=""Task{{TResult}}""/> representing the invocation of this operation.
+        /// An instance of <typeparamref name=""TResult""/>.
         /// </returns>
-        Task<TResult> InvokeT{x}Async(T{x} input, CancellationToken cancellationToken);
+        TResult InvokeT{x}(T{x} input);
 ");
                 });
 
