@@ -39,8 +39,10 @@ namespace Drexel.Operations
             this.t2 = t2 ?? throw new ArgumentNullException(nameof(t2));
         }
 
+        /// <inheritdoc/>
         public TResult InvokeT1(T1 input) => this.t1.Invoke(input);
 
+        /// <inheritdoc/>
         public TResult InvokeT2(T2 input) => this.t2.Invoke(input);
     }
 }

@@ -39,8 +39,10 @@ namespace Drexel.Operations
             this.t2 = t2 ?? throw new ArgumentNullException(nameof(t2));
         }
 
+        /// <inheritdoc/>
         public void InvokeT1(T1 input) => this.t1.Invoke(input);
 
+        /// <inheritdoc/>
         public void InvokeT2(T2 input) => this.t2.Invoke(input);
     }
 }
@@ -174,6 +176,7 @@ namespace Drexel.Operations
                 x =>
                 {
                     builder.AppendLine();
+                    builder.AppendLine("        /// <inheritdoc/>");
                     builder.AppendLine($"        public void InvokeT{x}(T{x} input) => this.t{x}.Invoke(input);");
                 });
 

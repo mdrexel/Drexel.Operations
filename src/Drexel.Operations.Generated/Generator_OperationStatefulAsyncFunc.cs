@@ -47,9 +47,11 @@ namespace Drexel.Operations
             this.t2 = t2 ?? throw new ArgumentNullException(nameof(t2));
         }
 
+        /// <inheritdoc/>
         public Task<TResult> InvokeT1Async(T1 input, TState state, CancellationToken cancellationToken) =>
             this.t1.Invoke(input, state, cancellationToken);
 
+        /// <inheritdoc/>
         public Task<TResult> InvokeT2Async(T2 input, TState state, CancellationToken cancellationToken) =>
             this.t2.Invoke(input, state, cancellationToken);
     }
@@ -195,6 +197,7 @@ namespace Drexel.Operations
                 x =>
                 {
                     builder.AppendLine();
+                    builder.AppendLine("        /// <inheritdoc/>");
                     builder.AppendLine($"        public Task<TResult> InvokeT{x}Async(T{x} input, TState state, CancellationToken cancellationToken) =>");
                     builder.AppendLine($"            this.t{x}.Invoke(input, state, cancellationToken);");
                 });

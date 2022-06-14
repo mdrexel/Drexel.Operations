@@ -4,10 +4,34 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>8.0</LangVersion>
     <Nullable>Enable</Nullable>
+
+    <Deterministic>true</Deterministic>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+
+    <EmbedAllSources>true</EmbedAllSources>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>embedded</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Drexel.Operations.Generated\Drexel.Operations.Generated.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
   </ItemGroup>
+
+  <PropertyGroup>
+    <Version>0.1.0</Version>
+    <Authors>Max Drexel</Authors>
+    <Description>C# library defining delegate groupings.</Description>
+    <Copyright>Copyright 2022</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/mdrexel/Drexel.Operations</PackageProjectUrl>
+    <PackageTags>operation operations drexel</PackageTags>
+    <PackageReleaseNotes>0.1.0: Initial release</PackageReleaseNotes>
+  </PropertyGroup>
 
 </Project>
