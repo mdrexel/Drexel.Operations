@@ -24,14 +24,14 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <Authors>Max Drexel</Authors>
     <Description>C# library defining delegate groupings.</Description>
     <Copyright>Copyright 2022</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/mdrexel/Drexel.Operations</PackageProjectUrl>
     <PackageTags>operation operations drexel</PackageTags>
-    <PackageReleaseNotes>0.1.0: Initial release</PackageReleaseNotes>
+    <PackageReleaseNotes>0.1.1: Packaging changes</PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>
